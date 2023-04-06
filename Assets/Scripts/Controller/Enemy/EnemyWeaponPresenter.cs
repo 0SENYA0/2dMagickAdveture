@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemyWeaponController : MonoBehaviour
+public class EnemyWeaponPresenter : MonoBehaviour
 {
     public event Action<int> Attacking;
 

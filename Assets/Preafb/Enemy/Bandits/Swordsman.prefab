@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 5374202572448351497}
   - component: {fileID: 5374202572448351496}
   - component: {fileID: 5374202572448351498}
-  - component: {fileID: 5374202572448351504}
   - component: {fileID: 3691555880762725432}
   - component: {fileID: 3691555880762725439}
   - component: {fileID: 5510527360890518347}
@@ -27,6 +26,7 @@ GameObject:
   - component: {fileID: 4057926932425127543}
   - component: {fileID: 468263043775801549}
   - component: {fileID: 2660162899184605908}
+  - component: {fileID: -8139155104929773144}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Untagged
@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358b354f0a77ba4681afd5ebb2f8a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 4057926932425127543}
   _targetState: {fileID: 5374202572448351497}
-  EnemyMoveController: {fileID: 4057926932425127543}
   _distanceLose: 9
 --- !u!114 &5374202572448351490
 MonoBehaviour:
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d504c4b23881643b328b1300aa6c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 4057926932425127543}
   _targetState: {fileID: 5374202572448351496}
-  EnemyMoveController: {fileID: 4057926932425127543}
   _maxDistance: 8
   _minDistance: 3
 --- !u!114 &5374202572448351492
@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48a3d83e6296bc42919f9a91fc5a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 4057926932425127543}
   _targetState: {fileID: 5374202572448351498}
-  EnemyMoveController: {fileID: 4057926932425127543}
   _distance: 3.2
 --- !u!114 &5374202572448351495
 MonoBehaviour:
@@ -181,9 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0d388152b522d479664c67b10b5e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthController: {fileID: 5374202572448351504}
-  _enemyWeaponController: {fileID: -211698160991781528}
-  _enemyMoveController: {fileID: 4057926932425127543}
+  _enemyHealthPresenter: {fileID: -8139155104929773144}
+  _enemyWeaponPresenter: {fileID: -211698160991781528}
+  _enemyMovePresenter: {fileID: 4057926932425127543}
   _swordsmanAnimationView: {fileID: 5510527360890518347}
 --- !u!114 &5374202572448351494
 MonoBehaviour:
@@ -210,10 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd0522c936f03478c491828e427538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 4057926932425127543}
   _transitions:
   - {fileID: 5374202572448351492}
   - {fileID: 5374202572448351490}
-  EnemyMoveController: {fileID: 4057926932425127543}
 --- !u!114 &5374202572448351496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf379b291d67a44f99c27ae1a80b8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 4057926932425127543}
   _transitions:
   - {fileID: 5374202572448351492}
   - {fileID: 5374202572448351491}
-  EnemyMoveController: {fileID: 4057926932425127543}
 --- !u!114 &5374202572448351498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,23 +242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8146a0145cb1944abddac83794b788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 4057926932425127543}
   _transitions:
   - {fileID: 5374202572448351490}
-  EnemyMoveController: {fileID: 4057926932425127543}
-  _enemyWeaponController: {fileID: -211698160991781528}
---- !u!114 &5374202572448351504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7868761992994875319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc7af079e4088745a9774d2f1d06dc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startHealth: 97
+  _enemyWeaponPresenter: {fileID: -211698160991781528}
 --- !u!70 &3691555880762725432
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -307,10 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0bfb6ad6179634097732ca435b49e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthController: {fileID: 5374202572448351504}
-  _enemyWeaponController: {fileID: -211698160991781528}
-  _swordsmanController: {fileID: 5374202572448351495}
-  _enemyMoveController: {fileID: 4057926932425127543}
+  _enemyHealthPresenter: {fileID: -8139155104929773144}
+  _enemyWeaponPresenter: {fileID: -211698160991781528}
+  _swordsmanPresenter: {fileID: 5374202572448351495}
+  _enemyMovePresenter: {fileID: 4057926932425127543}
   _animator: {fileID: 3691555880762725439}
 --- !u!114 &-211698160991781528
 MonoBehaviour:
@@ -363,7 +350,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
+--- !u!114 &-8139155104929773144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868761992994875319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997c4f5224adeb347b3f7d664091247a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startHealth: 96
 --- !u!1 &8876422629383877948
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,4 +461,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3431feed835b041b338a336f4b7543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthController: {fileID: 5374202572448351504}
+  _enemyHealthPresenter: {fileID: -8139155104929773144}

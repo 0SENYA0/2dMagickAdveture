@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerController : MonoBehaviour
+public class SpawnerPresenter : MonoBehaviour
 {
-    [SerializeField] private PlayerHealthController _playerHealthController;
+    [SerializeField] private PlayerHealthPresenter _playerHealthPresenter;
     [SerializeField] private List<Wave> _waves;
 
     private Coroutine _coroutine;
@@ -40,7 +40,7 @@ public class SpawnerController : MonoBehaviour
         _currentWave = _waves[waveIndex];
     }
 
-    private void Init(int countMinotaurs, EnemyController prefab, float delay)
+    private void Init(int countMinotaurs, EnemyPresenter prefab, float delay)
     {
         if (_coroutine != null)
         {
@@ -50,14 +50,14 @@ public class SpawnerController : MonoBehaviour
         _coroutine = StartCoroutine(InitMinotaur(countMinotaurs, prefab, delay));
     }
 
-    private IEnumerator InitMinotaur(int countMinotaurs, EnemyController prefab, float delay)
+    private IEnumerator InitMinotaur(int countMinotaurs, EnemyPresenter prefab, float delay)
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(delay);
 
         for (int i = 0; i < countMinotaurs; i++)
         {
-            EnemyController enemyController = Instantiate(prefab, transform.position, transform.rotation);
-            enemyController.InitPlayerHealth(_playerHealthController);
+            EnemyPresenter enemyController = Instantiate(prefab, transform.position, transform.rotation);
+            enemyController.InitPlayerHealth(_playerHealthPresenter);
             enemyController.Destroing += OnDestroyEnemy;
             yield return waitForSeconds;
         }
@@ -69,7 +69,7 @@ public class SpawnerController : MonoBehaviour
 [System.Serializable]
 class Wave
 {
-    public EnemyController Prefab;
+    public EnemyPresenter Prefab;
     public float Delay;
     public int Count;
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerControllerMovement : MonoBehaviour
+public class PlayerMovementPresenter : MonoBehaviour
 {
-    [SerializeField] private float _speed;
     [SerializeField] private PhysicsMovement _physicsMovement;
+    [SerializeField] private float _speed;
 
     public event Action<Vector2> DirectionChanged;
     private PlayerInput _inputActions;

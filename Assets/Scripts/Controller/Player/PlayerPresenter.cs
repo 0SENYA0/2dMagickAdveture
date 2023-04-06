@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerPresenter : MonoBehaviour
 {
     [SerializeField] private int _startHealth;
     [SerializeField] private int _cooldown;
     [SerializeField] private int _startMana;
 
-    [SerializeField] private BulletSpawnController _bulletSpawnController;
-    [SerializeField] private PlayerHealthController _playerHealthController;
+    [SerializeField] private PlayerBulletSpawnPresenter _bulletSpawnPresenter;
+    [SerializeField] private PlayerHealthPresenter _playerHealthPresenter;
     [SerializeField] private PlayerBulletView _playerBulletView;
     [SerializeField] private Transform _backPoint;
     [SerializeField] private Transform _forwardPoint;
@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerHealthController.Damaged += OnDamaged;
+        _playerHealthPresenter.Damaged += OnDamaged;
     }
 
     private void OnDisable()
     {
-        _playerHealthController.Damaged -= OnDamaged;
+        _playerHealthPresenter.Damaged -= OnDamaged;
     }
 
     public void ChangeMaxMana(int addedValue) =>
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         _player.Spell.ChangeCooldownValue((int)_player.Spell.Cooldown);
         _player.Spell.ChangeBulletDamage(_player.Spell.GetDamage());
 
-        _bulletSpawnController.SetBullet(_player.GetBullet(typeof(FireBullet)));
+        _bulletSpawnPresenter.SetBullet(_player.GetBullet(typeof(FireBullet)));
     }
 
     public void SetIceBullet()
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         _player.Spell.ChangeCooldownValue((int)_player.Spell.Cooldown);
         _player.Spell.ChangeBulletDamage(_player.Spell.GetDamage());
 
-        _bulletSpawnController.SetBullet(_player.GetBullet(typeof(IceBullet)));
+        _bulletSpawnPresenter.SetBullet(_player.GetBullet(typeof(IceBullet)));
     }
 
     public void ChangeBulletDamage(int damage) =>
@@ -73,11 +73,11 @@ public class PlayerController : MonoBehaviour
         _player.Spell.ChangeCooldownValue(cooldown);
 
     private void SpawnBullet() =>
-        _bulletSpawnController.Atack();
+        _bulletSpawnPresenter.Atack();
 
     private void OnDamaged(int damage)
     {
-        if (_playerHealthController.CurrentValue <= 0)
+        if (_playerHealthPresenter.CurrentValue <= 0)
             Die();
     }
 

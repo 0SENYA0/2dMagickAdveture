@@ -7,9 +7,9 @@ public class StateFollowByPlayer : State
 
     private void CheckPlayerPosition()
     {
-        if (EnemyMoveController.GetPlayerPosition().x > transform.position.x)
-            EnemyMoveController.Move(Vector2.right);
-        else if(EnemyMoveController.GetPlayerPosition().x < transform.position.x)
-            EnemyMoveController.Move(Vector2.left);
+        if (EnemyMovePresenter.GetPlayerPosition().x > transform.position.x)
+            EnemyMovePresenter.Move(Vector2.right);
+        else if(EnemyMovePresenter.GetPlayerPosition().x < transform.position.x)
+            EnemyMovePresenter.Move(Vector2.left);
     }
 }

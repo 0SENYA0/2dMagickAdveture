@@ -7,8 +7,8 @@ public class TransitionToFollowByPlayer : Transition
     
     private void Update()
     {
-        if (Vector2.Distance(transform.position, EnemyMoveController.GetPlayerPosition()) < _maxDistance && 
-            Vector2.Distance(transform.position, EnemyMoveController.GetPlayerPosition()) > _minDistance)
+        if (Vector2.Distance(transform.position, EnemyMovePresenter.GetPlayerPosition()) < _maxDistance && 
+            Vector2.Distance(transform.position, EnemyMovePresenter.GetPlayerPosition()) > _minDistance)
                 NeedTransit = true;
     }
 }

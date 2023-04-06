@@ -3,8 +3,8 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
+    [SerializeField] protected EnemyMovePresenter EnemyMovePresenter;
     [SerializeField] private List<Transition> _transitions;
-    [SerializeField] protected EnemyMoveController EnemyMoveController;
 
     public void Enter()
     {

@@ -4,19 +4,19 @@ using UnityEngine;
 public class PlayerAnimationView : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private PlayerControllerMovement _playerControllerMovement;
-    [SerializeField] private PlayerWeaponController _playerWeaponController;
+    [SerializeField] private PlayerMovementPresenter _playerMovementPresenter;
+    [SerializeField] private PlayerWeaponPresenter _playerWeaponPresenter;
 
     private void OnEnable()
     {
-        _playerControllerMovement.DirectionChanged += OnDirectionChanged;
-        _playerWeaponController.Attacked += OnAttacked;
+        _playerMovementPresenter.DirectionChanged += OnDirectionChanged;
+        _playerWeaponPresenter.Attacked += OnAttacked;
     }
 
     private void OnDisable()
     {
-        _playerControllerMovement.DirectionChanged -= OnDirectionChanged;
-        _playerWeaponController.Attacked -= OnAttacked;
+        _playerMovementPresenter.DirectionChanged -= OnDirectionChanged;
+        _playerWeaponPresenter.Attacked -= OnAttacked;
     }
 
     private void OnAttacked() => 

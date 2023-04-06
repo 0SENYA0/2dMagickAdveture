@@ -4,6 +4,6 @@ public class StatePatrol : State
 {
     private void Update()
     {
-        EnemyMoveController.Move(Vector2.zero);
+        EnemyMovePresenter.Move(Vector2.zero);
     }
 }

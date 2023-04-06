@@ -6,7 +6,7 @@ public class TransitionToAttack : Transition
     
     private void Update()
     {
-        if (IsPositionToAttack(transform.position, EnemyMoveController.GetPlayerPosition()))
+        if (IsPositionToAttack(transform.position, EnemyMovePresenter.GetPlayerPosition()))
             NeedTransit = true;
         
         return;

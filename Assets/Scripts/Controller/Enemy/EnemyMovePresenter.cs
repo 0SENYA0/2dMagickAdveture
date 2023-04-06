@@ -2,17 +2,17 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(EnemyController))]
+[RequireComponent(typeof(EnemyPresenter))]
 [RequireComponent(typeof(MovementStrategy))]
 [RequireComponent(typeof(PhysicsMovement))]
-public class EnemyMoveController : MonoBehaviour
+public class EnemyMovePresenter : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
     public event Action<Vector2> Moving;
     private bool _isRightDirection = false;
     private Rigidbody2D _rigidbody2D;
-    private EnemyController _enemyController;
+    private EnemyPresenter _enemyController;
     private MovementStrategy _movementStrategy;
     private PhysicsMovement _physicsMovement;
     private Vector2 _direction;
@@ -27,7 +27,7 @@ public class EnemyMoveController : MonoBehaviour
     {
         _movementStrategy = GetComponent<MovementStrategy>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _enemyController = GetComponent<EnemyController>();
+        _enemyController = GetComponent<EnemyPresenter>();
     }
 
     private void FixedUpdate() =>
@@ -59,7 +59,7 @@ public class EnemyMoveController : MonoBehaviour
     }
 
     public Vector3 GetPlayerPosition() =>
-       _enemyController.GetPlayerPosition();
+       _enemyController.PlayerPosition;
 
     public void Flip()
     {

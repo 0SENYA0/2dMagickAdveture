@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StateAttack : State
 {
-    [SerializeField] private EnemyWeaponController _enemyWeaponController;
+    [SerializeField] private EnemyWeaponPresenter _enemyWeaponPresenter;
 
     private float _timer = 0f;
     private bool _canAttack = true;
@@ -15,12 +15,12 @@ public class StateAttack : State
 
     public void ApplyAttack()
     {
-        EnemyMoveController.Move(Vector2.zero);
+        EnemyMovePresenter.Move(Vector2.zero);
 
         if (_canAttack == false)
             return;
 
-        _enemyWeaponController.Attack();
+        _enemyWeaponPresenter.Attack();
 
         if (_coroutine != null)
             StopCoroutine(_coroutine);
@@ -30,11 +30,13 @@ public class StateAttack : State
 
     private IEnumerator StartCooldown()
     {
-        while (_timer < _enemyWeaponController.Cooldown)
+        WaitForSeconds timeToCooldown = new WaitForSeconds(1);
+        
+        while (_timer < _enemyWeaponPresenter.Cooldown)
         {
             _canAttack = false;
             _timer += 1;
-            yield return new WaitForSeconds(1);
+            yield return timeToCooldown;
         }
 
         _canAttack = true;

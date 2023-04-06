@@ -2,26 +2,26 @@
 
 public class BatAnimationView : MonoBehaviour
 {
-    [SerializeField] private EnemyHealthController _enemyHealthController;
-    [SerializeField] private EnemyWeaponController _enemyWeaponController;
-    [SerializeField] private BatController _batController;
-    [SerializeField] private EnemyMoveController _enemyMoveController;
+    [SerializeField] private EnemyHealthPresenter _enemyHealthPresenter;
+    [SerializeField] private EnemyWeaponPresenter _enemyWeaponPresenter;
+    [SerializeField] private BatPresenter _batPresenter;
+    [SerializeField] private EnemyMovePresenter _enemyMovePresenter;
     [SerializeField] private Animator _animator;
 
     private void OnEnable()
     {
-        _enemyWeaponController.Attacking += OnAttacking;
-        _batController.Dying += OnDying;
-        _enemyMoveController.Moving += OnMoving;
-        _enemyHealthController.Damaged += OnDamaged;
+        _enemyWeaponPresenter.Attacking += OnAttacking;
+        _batPresenter.Dying += OnDying;
+        _enemyMovePresenter.Moving += OnMoving;
+        _enemyHealthPresenter.Damaged += OnDamaged;
     }
 
     private void OnDisable()
     {
-        _enemyMoveController.Moving -= OnMoving;
-        _enemyHealthController.Damaged -= OnDamaged;
-        _batController.Dying -= OnDying;
-        _enemyWeaponController.Attacking -= OnAttacking;
+        _enemyMovePresenter.Moving -= OnMoving;
+        _enemyHealthPresenter.Damaged -= OnDamaged;
+        _batPresenter.Dying -= OnDying;
+        _enemyWeaponPresenter.Attacking -= OnAttacking;
     }
 
     private void OnMoving(Vector2 direction) =>

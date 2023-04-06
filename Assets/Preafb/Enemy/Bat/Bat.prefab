@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3431feed835b041b338a336f4b7543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthController: {fileID: 3488211922575746460}
+  _enemyHealthPresenter: {fileID: 6235330725426077813}
 --- !u!212 &3415090482467052707
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 3488211922575746457}
   - component: {fileID: 3488211922575746463}
   - component: {fileID: 3488211922575746451}
-  - component: {fileID: 3488211922575746460}
   - component: {fileID: 3488211922575746461}
   - component: {fileID: 3488211922575746462}
   - component: {fileID: 3488211922575746453}
@@ -125,6 +124,7 @@ GameObject:
   - component: {fileID: 6253404451387652642}
   - component: {fileID: 2544244571950632950}
   - component: {fileID: 7667427099977602804}
+  - component: {fileID: 6235330725426077813}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -283,24 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a99fc715413a3438e1679785a6ff9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthController: {fileID: 3488211922575746460}
-  _enemyWeaponController: {fileID: 3488211922575746461}
-  _enemyMoveController: {fileID: 3488211922575746462}
+  _enemyHealthPresenter: {fileID: 6235330725426077813}
+  _enemyWeaponPresenter: {fileID: 3488211922575746461}
+  _enemyMovePresenter: {fileID: 3488211922575746462}
   _batAnimationView: {fileID: 6253404451387652642}
-  _batBulletView: {fileID: 3488211923319490652}
---- !u!114 &3488211922575746460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3488211922575746405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc7af079e4088745a9774d2f1d06dc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startHealth: 93
 --- !u!114 &3488211922575746461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,10 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd0522c936f03478c491828e427538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 3488211922575746462}
   _transitions:
   - {fileID: 3488211922575746448}
   - {fileID: 3488211922575746449}
-  EnemyMoveController: {fileID: 3488211922575746462}
 --- !u!114 &3488211922575746454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,10 +340,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf379b291d67a44f99c27ae1a80b8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 3488211922575746462}
   _transitions:
   - {fileID: 3488211922575746450}
   - {fileID: 3488211922575746448}
-  EnemyMoveController: {fileID: 3488211922575746462}
 --- !u!114 &3488211922575746455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,10 +356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8146a0145cb1944abddac83794b788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 3488211922575746462}
   _transitions:
   - {fileID: 3488211922575746449}
-  EnemyMoveController: {fileID: 3488211922575746462}
-  _enemyWeaponController: {fileID: 3488211922575746461}
+  _enemyWeaponPresenter: {fileID: 3488211922575746461}
 --- !u!114 &3488211922575746448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48a3d83e6296bc42919f9a91fc5a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 3488211922575746462}
   _targetState: {fileID: 3488211922575746455}
-  EnemyMoveController: {fileID: 3488211922575746462}
   _distance: 15
 --- !u!114 &3488211922575746449
 MonoBehaviour:
@@ -401,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d504c4b23881643b328b1300aa6c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 3488211922575746462}
   _targetState: {fileID: 3488211922575746454}
-  EnemyMoveController: {fileID: 3488211922575746462}
   _maxDistance: 19
   _minDistance: 15
 --- !u!114 &3488211922575746450
@@ -417,8 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358b354f0a77ba4681afd5ebb2f8a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMovePresenter: {fileID: 3488211922575746462}
   _targetState: {fileID: 3488211922575746453}
-  EnemyMoveController: {fileID: 3488211922575746462}
   _distanceLose: 20
 --- !u!114 &6253404451387652642
 MonoBehaviour:
@@ -432,10 +418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77559e012a2feee4e9f3f7ba1b2debe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealthController: {fileID: 3488211922575746460}
-  _enemyWeaponController: {fileID: 3488211922575746461}
-  _batController: {fileID: 3488211922575746451}
-  _enemyMoveController: {fileID: 3488211922575746462}
+  _enemyHealthPresenter: {fileID: 6235330725426077813}
+  _enemyWeaponPresenter: {fileID: 3488211922575746461}
+  _batPresenter: {fileID: 3488211922575746451}
+  _enemyMovePresenter: {fileID: 3488211922575746462}
   _animator: {fileID: 3488211922575746404}
 --- !u!114 &2544244571950632950
 MonoBehaviour:
@@ -456,14 +442,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3488211922575746405}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f13ec9446ea3794193efbd84c843c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+--- !u!114 &6235330725426077813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488211922575746405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997c4f5224adeb347b3f7d664091247a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startHealth: 94
 --- !u!1 &3488211923319490648
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,10 +508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660413856fa00bc41ad0c3d9f08ebe7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyWeaponController: {fileID: 3488211922575746461}
+  _enemyWeaponPresenter: {fileID: 3488211922575746461}
   _batController: {fileID: 3488211922575746451}
   _batBulletView: {fileID: 3488211923319490652}
-  _bullet: {fileID: 5170800734359571035, guid: 1863ca10a21d59f42bdad31c80a97723, type: 3}
+  _bulletComponent: {fileID: 5170800734359571035, guid: 1863ca10a21d59f42bdad31c80a97723, type: 3}
 --- !u!114 &3488211923319490652
 MonoBehaviour:
   m_ObjectHideFlags: 0

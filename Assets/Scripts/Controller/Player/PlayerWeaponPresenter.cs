@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerWeaponController : MonoBehaviour
+public class PlayerWeaponPresenter : MonoBehaviour
 {
-    [SerializeField] private PlayerController _playerController;
-    [SerializeField] private PlayerManaController _playerManaController;
+    [SerializeField] private PlayerManaPresenter _playerManaPresenter;
+    [SerializeField] private PlayerPresenter _playerPresenter;
 
     public event Action Attacked;
 
@@ -21,7 +21,7 @@ public class PlayerWeaponController : MonoBehaviour
         _inputActions = new PlayerInput();
 
     private void Start() =>
-        _weaponCooldown = (int)_playerController.Player.Spell.Cooldown;
+        _weaponCooldown = (int)_playerPresenter.Player.Spell.Cooldown;
 
     private void OnEnable()
     {
@@ -58,33 +58,35 @@ public class PlayerWeaponController : MonoBehaviour
     }
 
     private void SetFireBullet() =>
-        _playerController.SetFireBullet();
+        _playerPresenter.SetFireBullet();
 
     private void SetIceBullet() =>
-        _playerController.SetIceBullet();
+        _playerPresenter.SetIceBullet();
 
     private IEnumerator StartTimerForReachargeManaCoroutine()
     {
+        WaitForSeconds timeToRecharge = new WaitForSeconds(1);
         int timerRechargeMana = timeForRechargeMana;
 
         while (timerRechargeMana > 0)
         {
             timerRechargeMana--;
-            yield return new WaitForSeconds(1);
+            yield return timeToRecharge;
         }
 
-        _playerManaController.Recharge();
+        _playerManaPresenter.Recharge();
     }
 
     private IEnumerator StartCooldownCoroutine()
     {
+        WaitForSeconds timeToCooldown = new WaitForSeconds(1);
         int timerCooldown = _weaponCooldown;
 
         while (timerCooldown > 0)
         {
             _canAttack = false;
             timerCooldown--;
-            yield return new WaitForSeconds(1);
+            yield return timeToCooldown;
         }
 
         _canAttack = true;

@@ -2,8 +2,8 @@
 
 public abstract class Transition : MonoBehaviour
 {
+    [SerializeField] protected EnemyMovePresenter EnemyMovePresenter;
     [SerializeField] private State _targetState;
-    [SerializeField] protected EnemyMoveController EnemyMoveController;
 
     public bool NeedTransit { get; protected set; }
 

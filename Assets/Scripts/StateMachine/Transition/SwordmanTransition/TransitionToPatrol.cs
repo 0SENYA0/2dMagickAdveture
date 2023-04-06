@@ -6,7 +6,7 @@ public class TransitionToPatrol : Transition
     
     private void Update()
     {
-        if (Vector3.Distance(transform.position, EnemyMoveController.GetPlayerPosition()) > _distanceLose)
+        if (Vector3.Distance(transform.position, EnemyMovePresenter.GetPlayerPosition()) > _distanceLose)
             NeedTransit = true;
     }
 }

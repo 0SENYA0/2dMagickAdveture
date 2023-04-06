@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemyHealthController : HealthController
+public class EnemyHealthPresenter : HealthPresenter
 {
     [Range(90, 100)]
     [SerializeField] private int _startHealth;
